@@ -30,24 +30,6 @@ std::map<std::string, int> countWordFrequency(std::string bookFileName) {
     return wordFrequency;
 }
 
-std::map<std::string, int> pruneStopWords(std::map<std::string, int> wordFrequency) {
-    std::map<std::string, int> prunedMap;
-
-    std::vector<std::string> stopWords = {
-        "a", "an", "and", "are", "as", "at", "be", "but", "by", "for", 
-        "if", "in", "into", "is", "it", "no", "not", "of", "on", "or", 
-        "such", "that", "the", "their", "then", "there", "these", "they", 
-        "this", "to", "was", "will", "with", "he", "she", "you", "your", 
-        "i", "me", "my", "we", "us", "our", "him", "his", "her", "hers"
-    };
-
-    for (const auto& stopWord : stopWords) {
-        wordFrequency.erase(stopWord);
-    }
-
-    return prunedMap;
-}
-
 std::vector<std::pair<std::string, int> > orderWords(std::map<std::string, int> wordFrequency){
     auto sorted_words = std::vector<std::pair<std::string, int> >(wordFrequency.begin(), wordFrequency.end());
 
